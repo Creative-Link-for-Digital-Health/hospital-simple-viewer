@@ -11,14 +11,40 @@
         <header>
             <img src="./images/logo.svg" width = "90px" height = "auto" />
         </header>
-        <main>
-            sample body
+        <main id="image_container">
+            <img src="./hospital_images/sports_animals/compressed/croc_basketball.jpg" width="100%" height="auto">
         </main>
     </div>
 <!--     <script src="/js/tracking.js"></script> -->
     <script>
+        function getQueryParameters() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            return urlParams;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            new JourneyTracker();
+            
+            const my_params=getQueryParameters();
+            
+            console.log(my_params.get('project'));            
+            console.log(my_params.get('image_name'));
+
+            const project = my_params.get('project');
+            const image_name = my_params.get('image_name');
+
+            const imagePath = `./hospital_images/${project}/compressed/${image_name}.jpg`
+            const img = document.createElement('img');
+            img.src = imagePath;
+            // img.width = '100%';
+            // img.height = 'auto';
+
+            console.log(img)
+
+            const imageContainer = document.getElementById('image_container');
+            imageContainer.innerHTML = '';
+            imageContainer.appendChild(img);
         });
     </script>
 </body>
