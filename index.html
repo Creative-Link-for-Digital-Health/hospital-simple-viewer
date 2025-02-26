@@ -12,7 +12,7 @@
             <img src="./images/logo.svg" width = "90px" height = "auto" />
         </header>
         <main id="image_container">
-            <img src="./hospital_images/sports_animals/compressed/croc_basketball.jpg" width="100%" height="auto">
+            <img id="main_image" src="./hospital_images/sports_animals/compressed/croc_basketball.jpg" width="100%" height="auto">
         </main>
     </div>
 <!--     <script src="/js/tracking.js"></script> -->
@@ -37,8 +37,8 @@
             const imagePath = `./hospital_images/${project}/compressed/${image_name}.jpg`
             const img = document.createElement('img');
             img.src = imagePath;
-            // img.width = '100%';
-            // img.height = 'auto';
+            
+            img.width = window.innerWidth
 
             console.log(img)
 
